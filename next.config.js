@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* --------------------------------------------------------
 * Author Trần Đức Tiến
-* Email ductienas@gmail.com
+* Email tientran0019@gmail.com
 * Phone 0972970075
 *
 * Created: 2019-02-11 11:51:01
