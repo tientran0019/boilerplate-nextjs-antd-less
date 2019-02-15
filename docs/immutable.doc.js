@@ -1,13 +1,3 @@
-/* --------------------------------------------------------
-* Author Trần Đức Tiến
-* Email tientran0019@gmail.com
-* Phone 0972970075
-*
-* Created: 2018-08-18 09:48:06
-*------------------------------------------------------- */
-
-/* eslint-disable */
-
 List()
 var list = Immutable.List([1, 2, 3])
 // [1, 2, 3]
@@ -33,7 +23,7 @@ console.log(list.toJS());
 console.log(newlist.toJS());
 // ["new value", 2, 3]
 
-// delete() // - alias remove
+// delete(); // - alias remove
 var list = Immutable.List.of(1, 2, 3);
 console.log(list.toJS());
 // [1, 2, 3]
@@ -77,9 +67,9 @@ unshift()
 var list = Immutable.List.of(1, 2, 3);
 console.log(list.toJS());
 // [1, 2, 3]
-list = list.unshift();
+list = list.unshift('bar');
 console.log(list.toJS());
-// ['bar', 1, 2]
+// ['bar', 1, 2, 3]
 
 shift()
 var list = Immutable.List.of(1, 2, 3);
@@ -712,5 +702,3 @@ console.log(list1.isSuperset(list2));
 // false
 console.log(list2.isSuperset(list1));
 // true
-
-/* eslint-enable */

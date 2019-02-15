@@ -2,7 +2,7 @@
   "name": "react-boilerplate-with-nextjs",
   "version": "1.0.0",
   "description": "A boilerplate for Reactjs app using nextjs, redux, redux-saga, antd, less",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:tientran0019/react-boilerplate-with-nextjs.git"
@@ -23,7 +23,8 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "export": "next export"
+    "export": "next export",
+    "lint": "eslint ."
   },
   "dependencies": {
     "antd": "^3.13.2",

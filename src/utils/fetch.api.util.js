@@ -94,6 +94,7 @@ export default function* ({ uri, params = {}, opt = {}, loading = true, uploadFi
 	let response;
 	try {
 		if (ENV !== 'production') {
+			// eslint-disable-next-line no-console
 			console.info('====> Call ' + API_URL + url, ', options=', options);
 		}
 

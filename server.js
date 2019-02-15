@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* --------------------------------------------------------
 * Author Trần Đức Tiến
 * Email tientran0019@gmail.com

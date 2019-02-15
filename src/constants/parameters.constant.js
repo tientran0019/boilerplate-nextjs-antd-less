@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* --------------------------------------------------------
 * Author Trần Đức Tiến
 * Email tientran0019@gmail.com
