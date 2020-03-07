@@ -1,46 +1,49 @@
 {
 	"parser": "babel-eslint",
-	"extends": ["airbnb"],
+	"extends": "airbnb",
 	"plugins": [
 		"react",
-		"jsx-a11y",
-		"import"
+        "jsx-a11y",
+		"import",
+		"react-hooks"
 	],
 	"rules": {
-		"operator-linebreak": 0,
+		"react-hooks/rules-of-hooks": "error",
+    	"react-hooks/exhaustive-deps": "warn",
 		"import/prefer-default-export": "off",
+		"jsx-a11y/href-no-hash": "off",
+		"no-underscore-dangle": "off",
+		"react/forbid-prop-types": "off",
 		"max-len": "off",
 		"global-require": "off",
 		"quote-props": "off",
 		"arrow-parens": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"indent": [2, "tab", {"SwitchCase": 1}],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-indent-props": [2, "tab"],
+		"no-tabs": 0,
 		"object-curly-newline": 0,
+		"no-lonely-if": 0,
 		"prefer-template": 0,
 		"consistent-return": 0,
 		"arrow-body-style": 0,
+		"react/no-string-refs": 0,
 		"prefer-destructuring": 1,
-		"function-paren-newline": 0,
-		"jsx-a11y/href-no-hash": "off",
+		"no-bitwise": 0,
+		"react/no-array-index-key": 0,
+		"no-plusplus": 0,
 		"jsx-a11y/anchor-is-valid": 0,
+		"react/no-danger": 0,
+		"react/state-in-constructor": 0,
+		"function-paren-newline": 0,
 		"jsx-a11y/click-events-have-key-events": 0,
 		"jsx-a11y/no-static-element-interactions": 0,
-		"react/no-array-index-key": 0,
-		"react/forbid-prop-types": "off",
-		"react/jsx-indent": [2, "tab"],
-		"react/no-danger": 0,
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-		"react/jsx-indent-props": [2, "tab"],
-		"react/no-string-refs": 0,
-		"react/jsx-wrap-multilines": 0,
-		"react/jsx-one-expression-per-line": 0,
-		"react/prefer-stateless-function": 0,
 		"react/destructuring-assignment": 0,
-		"no-underscore-dangle": "off",
-		"no-tabs": 0,
-		"no-lonely-if": 0,
-		"no-plusplus": 0,
-		"no-nested-ternary": 0,
-		"no-bitwise": 0,
+		"operator-linebreak": 0,
+		"react/jsx-one-expression-per-line": 0,
+		"react/jsx-wrap-multilines": 0,
+		"linebreak-style": 0,
 		"no-unused-vars": [
 			"error",
 			{
@@ -53,31 +56,20 @@
 	"settings": {
 		"import/resolver": {
 			"node": {
-				"extensions": [".js", ".jsx", ".json"]
+				"extensions": [".js", ".android.js", ".ios.js", ".jsx"]
 			},
 			"babel-module": {
-				"root": [
-					"./"
-				],
 				"alias": {
-					"src": "./src",
-					"assets": "./assets"
+					"src": "./src"
 				}
 			}
-		},
-		"import/core-modules": [
-			"styled-jsx/css"
-		]
-	},
-	"parserOptions": {
-		"ecmaFeatures": {
-			"legacyDecorators": true
 		}
 	},
 	"globals": {
+		"chrome": true,
 		"fetch": true,
+		"FormData": true,
 		"document": true,
-		"__DEV__": true,
-		"FormData": true
+		"window": true
 	}
 }

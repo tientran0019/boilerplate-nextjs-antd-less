@@ -1,68 +1,49 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/no-extraneous-dependencies */
-/* --------------------------------------------------------
-* Author Trần Đức Tiến
-* Email tientran0019@gmail.com
-* Phone 0972970075
-*
-* Created: 2019-02-11 11:51:01
-*------------------------------------------------------- */
-require('dotenv').config();
-
-const lessToJS = require('less-vars-to-js');
 const fs = require('fs');
 const path = require('path');
-const withPlugins = require('next-compose-plugins');
-const { PHASE_PRODUCTION_BUILD } = require('next/constants');
-const Dotenv = require('dotenv-webpack');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
 
-const withLessExcludeAntd = require('./next-less.config');
+const lessToJS = require('less-vars-to-js');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
-// Where your antd-custom.less file lives
-const themeVariables = lessToJS(
-	fs.readFileSync(path.resolve(__dirname, './src/theme/variables.less'), 'utf8'),
-);
+const { parsed: env } = require('dotenv').config();
+
+const withAntd = require('./next-antd.config');
+
+const antdVariables = lessToJS(fs.readFileSync(path.resolve(__dirname, 'src/theme/variables.less'), 'utf8'));
 
 // fix: prevents error when .less files are required by node
 if (typeof require !== 'undefined') {
 	require.extensions['.less'] = file => { };
 }
 
-
-module.exports = withPlugins([
-	[
-		withLessExcludeAntd,
-		{
-			cssModules: true,
-			cssLoaderOptions: {
-				importLoaders: 1,
-				localIdentName: '[path]___[local]___[hash:base64:5]',
-			},
-			lessLoaderOptions: {
-				javascriptEnabled: true,
-				modifyVars: themeVariables,
-			},
-			[PHASE_PRODUCTION_BUILD]: {
-				cssLoaderOptions: {
-					localIdentName: '[hash:base64:8]',
-				},
-			},
+module.exports = withAntd({
+	cssModules: true,
+	cssLoaderOptions: {
+		sourceMap: process.env.NODE_ENV !== 'production',
+		importLoaders: 1,
+		localIdentName: process.env.NODE_ENV !== 'production' ? '[folder]__[local]__[hash:base64:5]' : '[hash:base64]',
+		context: path.resolve(__dirname, 'src'),
+	},
+	lessLoaderOptions: {
+		javascriptEnabled: true,
+		sourceMap: process.env.NODE_ENV !== 'production',
+		modifyVars: {
+			'hack': `true;@import "${path.resolve(__dirname, 'src/theme/color/colors.less')}";`,
+			...antdVariables,
 		},
-	],
-],
-{
+	},
 	webpack: config => {
-		config.plugins = config.plugins || [];
-
-		config.plugins = [
-			...config.plugins,
-
-			// Read the .env file
-			new Dotenv({
-				path: path.join(__dirname, '.env'),
-				systemvars: true,
+		config.plugins.push(
+			new FilterWarningsPlugin({
+				// ignore ANTD chunk styles [mini-css-extract-plugin] warning
+				exclude: [/mini-css-extract-plugin[^]*Conflicting order between:/],
 			}),
-		];
+		);
+
+		config.plugins.push(
+			new webpack.EnvironmentPlugin({ ...env, ...process.env }),
+		);
 
 		return config;
 	},

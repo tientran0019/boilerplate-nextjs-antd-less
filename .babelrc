@@ -3,12 +3,7 @@
         "next/babel"
     ],
     "plugins": [
-        [
-			"@babel/plugin-proposal-decorators",
-			{
-				"legacy": true
-			}
-		],
+		"@babel/plugin-proposal-optional-chaining",
         [
             "module-resolver",
             {
@@ -23,9 +18,11 @@
         [
             "import",
             {
-                "libraryName": "antd",
+				"libraryName": "antd",
+				"libraryDirectory": "lib",
                 "style": true
             }
         ]
-    ]
+	],
+	"ignore": ["node_modules"]
 }

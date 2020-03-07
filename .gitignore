@@ -6,6 +6,7 @@
 /.next
 /.analyzer
 /src/.next
+out
 
 dist
 yarn.lock
@@ -18,7 +19,6 @@ package-lock.json
 
 # webpack build target folder
 /build
-/out
 
 # npm modules
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git

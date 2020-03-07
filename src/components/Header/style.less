@@ -1,3 +1,28 @@
-.wrapper {
-    background: @primary-color;
+.headerWrapper {
+	height: 56px;
+}
+.header {
+	height: auto;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 56px;
+    background: #fff;
+    border-bottom: 1px solid #d8dbe0;
+	border: 0;
+    box-shadow: 0 2px 2px 0 rgba(60,75,100,.14), 0 3px 1px -2px rgba(60,75,100,.12), 0 1px 5px 0 rgba(60,75,100,.2);
+    -webkit-clip-path: inset(0 0 -1000px 0);
+	clip-path: inset(0 0 -1000px 0);
+	position: fixed;
+	z-index: 1;
+	justify-content: space-between;
+    right: 0;
+	left: 200px;
+	transition: all 0.2s;
 }

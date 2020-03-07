@@ -1,0 +1,80 @@
+
+#app-container,
+#root {
+	height: 100%;
+}
+/* width */
+::-webkit-scrollbar {
+	height: 5px;              /* height of horizontal scrollbar ← You're missing this */
+	width: 4px;               /* width of vertical scrollbar */
+	// border: 1px solid #e8e8e8;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+	background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(204, 204, 204);
+	border-radius: 3px;
+	border: 3px solid transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(155, 155, 155);
+	border: 2px solid transparent;
+}
+
+
+.ant-form-item-with-help {
+    margin-bottom: 5px !important;
+}
+
+// .ant-form-item-control:not(.has-error) {
+// 	line-height: inherit !important;
+// }
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item,
+.ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+	margin-bottom: 0;
+	margin-top: 0;
+	height: 48px;
+    line-height: 48px;
+}
+
+.ant-card {
+	box-shadow: 1px 1px 2px 0px rgba(60, 75, 100, 0.04) !important;
+}
+
+.site-collapse-custom-collapse {
+	background: transparent !important;
+	border: 0 !important;
+}
+
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+	background-color: #e6f7ff !important;
+    border: 1px solid #91d5ff !important;
+	border-radius: 2px !important;
+	margin-bottom: 24px !important;
+	overflow: hidden !important;
+}
+
+.ant-divider-horizontal {
+	margin: 15px 0;
+}
+
+.ant-statistic-content {
+	font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.ant-statistic-title {
+	color: rgba(0, 0, 0, 0.74) !important;
+}
