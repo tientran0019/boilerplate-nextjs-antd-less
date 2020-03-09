@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* --------------------------------------------------------
 * Author Trần Đức Tiến
 * Email tientran0019@gmail.com
@@ -6,8 +7,11 @@
 * Created: 2020-03-01 17:38:42
 *------------------------------------------------------- */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import Link from 'next/link';
+import Router from 'next/router';
 
 import { Layout, Avatar } from 'antd';
 import {
@@ -36,9 +40,26 @@ const MainLayout = (props) => {
 	const { children } = props;
 
 	const [collapsed, setCollapsed] = useState(false);
+	const [mobiShow, setMobiShow] = useState(false);
+	const [broken, setBroken] = useState(false);
+
+	useEffect(() => {
+		const handleRouteChange = url => {
+			setMobiShow(false);
+		};
+
+		Router.events.on('routeChangeStart', handleRouteChange);
+		return () => {
+			Router.events.off('routeChangeStart', handleRouteChange);
+		};
+	}, []);
 
 	const handleToggle = () => {
-		setCollapsed(!collapsed);
+		if (broken) {
+			setMobiShow(!mobiShow);
+		} else {
+			setCollapsed(!collapsed);
+		}
 	};
 
 	return (
@@ -50,36 +71,63 @@ const MainLayout = (props) => {
 			<Sider
 				trigger={null}
 				collapsible
-				collapsed={collapsed}
+				collapsed={collapsed && !broken}
 				className={classes.sidebar}
+				breakpoint="lg"
+				onBreakpoint={(val) => {
+					setBroken(val);
+					if (val) {
+						setCollapsed(false);
+						setMobiShow(false);
+					}
+				}}
+				style={{
+					left: broken && !mobiShow ? -200 : 0,
+				}}
 			>
-				<div className={classes.logo}>
-					<img src="/assets/images/brand/logo.png" alt="logo" height="30" />
-					{!collapsed && <span>Boilerplate</span>}
-				</div>
+				<Link href="/">
+					<a>
+						<div className={classes.logo}>
+							<img src="/assets/images/brand/logo.png" alt="logo" height="30" />
+							{!collapsed && <span>Boilerplate</span>}
+						</div>
+					</a>
+				</Link>
 				<Sidebar />
 			</Sider>
 			<Layout
 				className={classes.siteLayout}
 				style={{
-					paddingLeft: collapsed ? 80 : 200,
+					paddingLeft: broken ? 0 : collapsed ? 80 : 200,
 				}}
 			>
 				<Header
 					style={{
-						left: collapsed ? 80 : 200,
+						left: broken ? 0 : collapsed ? 80 : 200,
 					}}
 				>
 					{React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
 						className: classes.trigger,
 						onClick: handleToggle,
 					})}
+					{
+						broken &&
+						<Link href="/">
+							<a>
+								<div className={classes.logoCenter}>
+									<img src="/assets/images/brand/logo.png" alt="logo" height="25" />
+									<span>Boilerplate</span>
+								</div>
+							</a>
+						</Link>
+					}
 					<div className={classes.headerRight}>
 						<Avatar
 							src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
 						/>
 					</div>
 				</Header>
+				{mobiShow && broken && <div className={classes.overlay} onClick={() => setMobiShow(false)} />}
 				<Content
 					style={{
 						margin: 20,

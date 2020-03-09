@@ -23,6 +23,18 @@
 		margin-left: 10px;
 	}
 }
+.logoCenter {
+	font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size: 16px;
+	line-height: normal;
+
+	span {
+		margin-left: 5px;
+	}
+}
 
 .siteLayout {
 	transition: all 0.2s;
@@ -36,7 +48,8 @@
     overflow: auto;
     left: 0;
     top: 0;
-    bottom: 0;
+	bottom: 0;
+	z-index: 99;
 }
 
 .headerRight {
@@ -44,4 +57,15 @@
 	height: 56px;
     display: flex;
     align-items: center;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.42);
+	z-index: 98;
+	cursor: pointer;
 }

@@ -38,6 +38,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "next": "^9.2.2",
+    "nprogress": "^0.2.0",
     "null-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
