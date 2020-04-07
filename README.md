@@ -17,7 +17,7 @@ This boilerplate is updated with:
 1. Check if your [Node.js](https://nodejs.org/) version is >= 8.
 2. Clone this repository.
 3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
-4. Change the name of your extension on `src/manifest.json`.
+4. Change the name of your extension on `public/manifest.json`.
 5. Run `yarn` to install the dependencies.
 6. Run `yarn dev` for development.
 6. Run `yarn build` and `yarn start` for production.
