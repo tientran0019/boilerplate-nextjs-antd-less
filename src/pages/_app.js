@@ -17,6 +17,7 @@ import MainLayout from 'src/components/MainLayout';
 
 import 'src/theme/index.less';
 import 'src/theme/custom.less';
+import 'src/theme/styles.less';
 
 // const Noop = ({ children }) => children;
 

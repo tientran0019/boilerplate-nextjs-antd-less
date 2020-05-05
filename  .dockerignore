@@ -1,0 +1,9 @@
+node_modules/**
+.next/**
+out/**
+npm-debug.log
+
+Dockerfile
+.DS_Store
+.gitignore
+README.md
