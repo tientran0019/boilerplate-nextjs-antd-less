@@ -11,6 +11,8 @@ import React from 'react';
 
 import Head from 'next/head';
 
+import { html } from '../../README.md';
+
 const Index = (props) => {
 	// const { } = props;
 
@@ -19,7 +21,7 @@ const Index = (props) => {
 			<Head>
 				<title>Boilerplate</title>
 			</Head>
-			Dashboard
+			<div dangerouslySetInnerHTML={{ __html: html }} />
 		</div>
 	);
 };

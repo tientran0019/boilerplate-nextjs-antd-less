@@ -48,7 +48,12 @@ module.exports = withPlugins([
 	],
 ],
 {
+	// target: 'serverless', // for serverless
 	webpack: config => {
+		config.module.rules.push({
+			test: /\.md$/,
+			use: 'frontmatter-markdown-loader',
+		});
 		config.plugins.push(
 			new FilterWarningsPlugin({
 				// ignore ANTD chunk styles [mini-css-extract-plugin] warning
