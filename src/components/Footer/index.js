@@ -17,12 +17,12 @@ const Footer = (props) => {
 	return (
 		<footer className={classes.footer}>
 			<div>
-				<a href="#">Boilerplate</a>
+				<a href="https://github.com/tientran0019/boilerplate-nextjs-antd-less" target="_blank" rel="noopener noreferrer">Nextjs Boilerplate</a>
 				<span> 2019. All Rights Reserved.</span>
 			</div>
 			<div className="ml-auto">
-				<span>Powered by</span>
-				<a href="#">Dev</a>
+				<span>Powered by </span>
+				<a href="#">tientran0019@gmail.com</a>
 			</div>
 		</footer>
 	);

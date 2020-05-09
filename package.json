@@ -52,7 +52,9 @@
     "null-loader": "^4.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-cookies": "^0.1.1",
     "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1",
     "react-use": "^14.2.0"
   },
   "devDependencies": {
@@ -60,7 +62,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.20.2",

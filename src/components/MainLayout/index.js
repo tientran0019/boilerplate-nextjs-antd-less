@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Router from 'next/router';
 
-import { Layout, Avatar } from 'antd';
+import { Layout, Avatar, BackTop } from 'antd';
 import {
 	MenuUnfoldOutlined,
 	MenuFoldOutlined,
@@ -23,6 +23,8 @@ import {
 import Sidebar from 'src/components/Sidebar';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
+
+import CookieAlert from 'src/components/CookieAlert';
 
 import classes from './style.less';
 
@@ -63,81 +65,85 @@ const MainLayout = (props) => {
 	};
 
 	return (
-		<Layout
-			style={{
-				minHeight: '100vh',
-			}}
-		>
-			<Sider
-				trigger={null}
-				collapsible
-				collapsed={collapsed && !broken}
-				className={classes.sidebar}
-				breakpoint="lg"
-				onBreakpoint={(val) => {
-					setBroken(val);
-					if (val) {
-						setCollapsed(false);
-						setMobiShow(false);
-					}
-				}}
-				style={{
-					left: broken && !mobiShow ? -200 : 0,
-				}}
-			>
-				<Link href="/">
-					<a>
-						<div className={classes.logo}>
-							<img src="/assets/images/brand/logo.png" alt="logo" height="30" />
-							{!collapsed && <span>Boilerplate</span>}
-						</div>
-					</a>
-				</Link>
-				<Sidebar />
-			</Sider>
+		<>
 			<Layout
-				className={classes.siteLayout}
 				style={{
-					paddingLeft: broken ? 0 : collapsed ? 80 : 200,
+					minHeight: '100vh',
 				}}
 			>
-				<Header
+				<Sider
+					trigger={null}
+					collapsible
+					collapsed={collapsed && !broken}
+					className={classes.sidebar}
+					breakpoint="lg"
+					onBreakpoint={(val) => {
+						setBroken(val);
+						if (val) {
+							setCollapsed(false);
+							setMobiShow(false);
+						}
+					}}
 					style={{
-						left: broken ? 0 : collapsed ? 80 : 200,
+						left: broken && !mobiShow ? -200 : 0,
 					}}
 				>
-					{React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-						className: classes.trigger,
-						onClick: handleToggle,
-					})}
-					{
-						broken &&
-						<Link href="/">
-							<a>
-								<div className={classes.logoCenter}>
-									<img src="/assets/images/brand/logo.png" alt="logo" height="25" />
-									<span>Boilerplate</span>
-								</div>
-							</a>
-						</Link>
-					}
-					<div className={classes.headerRight}>
-						<Avatar
-							src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-						/>
-					</div>
-				</Header>
-				{mobiShow && broken && <div className={classes.overlay} onClick={() => setMobiShow(false)} />}
-				<Content
+					<Link href="/">
+						<a>
+							<div className={classes.logo}>
+								<img src={require('public/assets/images/logo.svg')} alt="logo" height="30" />
+								{!collapsed && <span>Boilerplate</span>}
+							</div>
+						</a>
+					</Link>
+					<Sidebar />
+				</Sider>
+				<Layout
+					className={classes.siteLayout}
 					style={{
-						margin: 20,
+						paddingLeft: broken ? 0 : collapsed ? 80 : 200,
 					}}
 				>
-					{children}
-				</Content>
-				<Footer />
+					<Header
+						style={{
+							left: broken ? 0 : collapsed ? 80 : 200,
+						}}
+					>
+						{React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+							className: classes.trigger,
+							onClick: handleToggle,
+						})}
+						{
+							broken &&
+							<Link href="/">
+								<a>
+									<div className={classes.logoCenter}>
+										<img src="/assets/images/brand/logo.png" alt="logo" height="25" />
+										<span>Boilerplate</span>
+									</div>
+								</a>
+							</Link>
+						}
+						<div className={classes.headerRight}>
+							<Avatar
+								src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+							/>
+						</div>
+					</Header>
+					{mobiShow && broken && <div className={classes.overlay} onClick={() => setMobiShow(false)} />}
+					<Content
+						style={{
+							margin: 20,
+						}}
+					>
+						{children}
+					</Content>
+					<Footer />
+				</Layout>
 			</Layout>
-		</Layout>
+			<BackTop />
+			<CookieAlert />
+		</>
 	);
 };
 

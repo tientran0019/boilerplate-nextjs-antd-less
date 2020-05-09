@@ -61,7 +61,8 @@
 			},
 			"babel-module": {
 				"alias": {
-					"src": "./src"
+					"src": "./src",
+					"public": "./public"
 				}
 			}
 		}
