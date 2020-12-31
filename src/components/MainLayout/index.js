@@ -91,7 +91,7 @@ const MainLayout = (props) => {
 					<Link href="/">
 						<a>
 							<div className={classes.logo}>
-								<img src={require('public/assets/images/logo.svg')} alt="logo" height="30" />
+								<img src="assets/images/logo.svg" alt="logo" height="30" />
 								{!collapsed && <span>Boilerplate</span>}
 							</div>
 						</a>
@@ -118,7 +118,7 @@ const MainLayout = (props) => {
 							<Link href="/">
 								<a>
 									<div className={classes.logoCenter}>
-										<img src="/assets/images/brand/logo.png" alt="logo" height="25" />
+										<img src="assets/images/logo.svg" alt="logo" height="25" />
 										<span>Boilerplate</span>
 									</div>
 								</a>

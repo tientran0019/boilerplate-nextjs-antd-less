@@ -9,6 +9,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import Image from 'next/image';
+
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -52,7 +54,12 @@ const Login = (props) => {
 				}}
 			>
 				<div className="text-center mb-4">
-					<img src="/assets/images/brand/logo.png" alt="logo" height="80" />
+					<Image
+						src="/assets/images/logo.svg"
+						alt="Logo"
+						width={80}
+						height={80}
+					/>
 				</div>
 				<Form.Item
 					name="username"

@@ -5,7 +5,6 @@ const path = require('path');
 const webpack = require('webpack');
 const withFonts = require('next-fonts');
 const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
 
 const lessToJS = require('less-vars-to-js');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
@@ -22,9 +21,6 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = withPlugins([
-	[optimizedImages, {
-		optimizeImagesInDev: true,
-	}],
 	[withFonts],
 	[
 		withAntd,
