@@ -4,8 +4,8 @@ A boilerplate for Reactjs app using nextjs, redux, antd, less.
 ## Features
 This boilerplate is updated with:
 
-- [React 16.13+](https://reactjs.org)
-- [Nextjs 9x](https://nextjs.org/)
+- [React 17x](https://reactjs.org)
+- [Nextjs 10x](https://nextjs.org/)
 - [Antd 4x](https://ant.design/)
 - Less - css module
 - Eslint
