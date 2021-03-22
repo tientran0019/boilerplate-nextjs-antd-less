@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.staging
+    ports:
+      - "3333:3333"
+    image: "boilerplate-staging${BUILD_NUMBER}"
+    restart: always
+    env_file:
+      - ./.env.staging
+    environment:
+      - NODE_ENV=staging
+    container_name: boilerplate-staging

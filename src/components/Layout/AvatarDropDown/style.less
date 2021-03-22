@@ -1,0 +1,50 @@
+.name {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.fullName {
+	flex: 1;
+	padding-left: 10px;
+	overflow: hidden;
+
+	strong {
+		font-weight: bold;
+	}
+
+	div {
+		font-size: 12px;
+	}
+}
+.menuDropdown {
+	width: 250px;
+
+	.item {
+		padding: 10px 20px;
+		display: flex;
+		align-items: center;
+
+		svg {
+			margin-right: 10px;
+			font-size: 18px;
+		}
+	}
+}
+
+.search {
+	flex-direction: row-reverse;
+	border: 0;
+	width: 170px;
+	padding-left: 0;
+
+	span::before {
+		display: none !important;
+	}
+
+	&:focus {
+		border: 0;
+		outline: none;
+		box-shadow: none;
+	}
+}

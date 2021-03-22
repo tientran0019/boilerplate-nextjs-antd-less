@@ -9,7 +9,9 @@
 	],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
-    	"react-hooks/exhaustive-deps": "warn",
+		"react-hooks/exhaustive-deps": "warn",
+		"react/require-default-props": 0,
+		"react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
 		"import/prefer-default-export": "off",
 		"jsx-a11y/href-no-hash": "off",
 		"no-underscore-dangle": "off",

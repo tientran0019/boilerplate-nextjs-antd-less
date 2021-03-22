@@ -1,0 +1,38 @@
+.headerWrapper {
+	height: 50px;
+
+	.header {
+		position: fixed;
+		width: 100%;
+		right: 0;
+		left: 0;
+		top: 0;
+		background: @primary-color;
+		height: 50px;
+		z-index: 99;
+		-webkit-box-shadow: 1px 1px 3px rgb(0 0 0 / 23%);
+    	box-shadow: 1px 1px 3px rgb(0 0 0 / 23%);
+	}
+
+	.logo {
+		padding: 10px 0;
+		display: inline-flex;
+		align-items: center;
+
+		h1 {
+			margin: 0;
+			margin-left: 10px;
+			font-size: 15px;
+			font-weight: 800;
+			line-height: 20px;
+			color: #f3f6f9;
+
+			span {
+				display: block;
+				font-weight: 400;
+				font-size: 10px;
+				line-height: 10px
+			}
+		}
+	}
+}

@@ -9,29 +9,33 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import Head from 'next/head';
+import Index from 'src/containers/Index/';
 
-import { html } from '../../README.md';
+import Head from 'src/components/Head';
 
-const Index = (props) => {
+const IndexPage = (props) => {
 	// const { } = props;
 
 	return (
-		<div className="">
-			<Head>
-				<title>Boilerplate</title>
-			</Head>
-			<div dangerouslySetInnerHTML={{ __html: html }} />
-		</div>
+		<>
+			<Head />
+			<Index />
+		</>
 	);
 };
 
-Index.propTypes = {
+IndexPage.propTypes = {
 	// classes: PropTypes.object.isRequired,
 };
 
-Index.defaultProps = {
+IndexPage.defaultProps = {
 	// classes: {},
 };
 
-export default Index;
+// IndexPage.getInitialProps = ({ store, isServer, pathname, query }) => {
+// 	// store.dispatch({ type: 'FOO', payload: 'foo' }); // The component can read from the store's state when rendered
+// 	return { custom: 'custom' }; // You can pass some custom props to the component from here
+// };
+
+export default IndexPage;
+// export default connect((state) => state)(IndexPage);

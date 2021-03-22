@@ -17,7 +17,9 @@ export const spliceOne = (list, index) => {
 	list.pop();
 };
 
-export default (filter, name = 'filter') => {
+const applyURIFilter = (filter, name = 'filter') => {
 	const flag = isPlainObject(filter) && !isEmptyObject(filter);
 	return flag ? `?${name}=${encodeURI(JSON.stringify(filter))}` : '';
 };
+
+export default applyURIFilter;

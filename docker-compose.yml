@@ -3,7 +3,11 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
-    image: "web-image:build${BUILD_NUMBER}"
+      - "3333:3333"
+    image: "boilerplate${BUILD_NUMBER}"
     restart: always
-    container_name: web-container
+    env_file:
+      - ./.env.production
+    environment:
+      - NODE_ENV=production
+    container_name: boilerplate

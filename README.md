@@ -31,18 +31,8 @@ If you are developing an extension that talks with some API you probably are usi
 Create a `.env` file in the root directory of your project. Add environment-specific variables on new lines in the form of `NAME=VALUE`. For example:
 
 ```js
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=s1mpl3
+API_URL=https://api.ippedu.com/api/v1
+WEB_URL=https://tests.ippedu.com
 ```
 
 `process.env` now has the keys and values you defined in your `.env` file.
-
-```js
-const db = require('db')
-db.connect({
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS
-})
-```
