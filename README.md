@@ -31,8 +31,8 @@ If you are developing an extension that talks with some API you probably are usi
 Create a `.env` file in the root directory of your project. Add environment-specific variables on new lines in the form of `NAME=VALUE`. For example:
 
 ```js
-API_URL=https://api.ippedu.com/api/v1
-WEB_URL=https://tests.ippedu.com
+API_URL=https://api.example.com/api/v1/
+WEB_URL=https://example.com
 ```
 
 `process.env` now has the keys and values you defined in your `.env` file.
