@@ -8,6 +8,7 @@ const withPlugins = require('next-compose-plugins');
 
 const lessToJS = require('less-vars-to-js');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 const { parsed: env } = require('dotenv').config();
 
@@ -55,6 +56,10 @@ module.exports = withPlugins([
 				// ignore ANTD chunk styles [mini-css-extract-plugin] warning
 				exclude: [/mini-css-extract-plugin[^]*Conflicting order between:/],
 			}),
+		);
+
+		config.plugins.push(
+			new AntdDayjsWebpackPlugin(),
 		);
 
 		config.plugins.push(

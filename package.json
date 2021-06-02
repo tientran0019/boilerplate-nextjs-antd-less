@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.13.8",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-module-resolver": "^4.1.0",
