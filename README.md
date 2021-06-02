@@ -11,6 +11,7 @@ This boilerplate is updated with:
 - Eslint
 - Next Fonts
 - Next Optimized Images
+- Added antd-dayjs-webpack-plugin, replacing momentjs with Day.js
 
 ## Installing and Running
 
