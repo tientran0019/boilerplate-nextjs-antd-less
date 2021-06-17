@@ -1,41 +1,34 @@
-# Boilerplate nextjs antd less
-A boilerplate for Reactjs app using nextjs, redux, antd, less.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-View the [Demo](https://boilerplate-nextjs-antd-less.vercel.app/)
+## Getting Started
 
-## Features
-This boilerplate is updated with:
+First, run the development server:
 
-- [React 17x](https://reactjs.org)
-- [Nextjs 10x](https://nextjs.org/)
-- [Antd 4x](https://ant.design/)
-- Less - css module
-- Eslint
-- Next Fonts
-- Next Optimized Images
-- Added antd-dayjs-webpack-plugin, replacing momentjs with Day.js
-
-## Installing and Running
-
-### Procedures:
-
-1. Check if your [Node.js](https://nodejs.org/) version is >= 8.
-2. Clone this repository.
-3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
-4. Change the name of your app on `public/manifest.json`.
-5. Run `yarn` to install the dependencies.
-6. Run `yarn dev` for development.
-6. Run `yarn build` and `yarn start` for production.
-
-## Secrets
-
-If you are developing an extension that talks with some API you probably are using different keys for testing and production. Is a good practice you not commit your secret keys and expose to anyone that have access to the repository.
-
-Create a `.env` file in the root directory of your project. Add environment-specific variables on new lines in the form of `NAME=VALUE`. For example:
-
-```js
-API_URL=https://api.example.com/api/v1/
-WEB_URL=https://example.com
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-`process.env` now has the keys and values you defined in your `.env` file.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
