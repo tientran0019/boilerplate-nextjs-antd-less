@@ -19,11 +19,11 @@
   ],
   "scripts": {
     "clean": "rimraf .next/ out/",
-    "dev": "node bin/dev",
-    "export": "node bin/export",
-    "build": "node bin/build",
+    "dev": "MODE=development node bin/dev",
+    "export": "MODE=production node bin/export",
+    "build": "MODE=production node bin/build",
     "build:staging": "MODE=staging node bin/build",
-    "start": "node bin/start",
+    "start": "MODE=production node bin/start",
     "start:staging": "MODE=staging node bin/start",
     "lint": "next lint"
   },
@@ -34,10 +34,12 @@
     "dayjs": "^1.10.5",
     "lodash": "^4.17.21",
     "next": "11.0.0",
+    "next-plugin-antd-less": "^1.3.0",
     "nprogress": "^0.2.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
     "query-string": "^7.0.0",
+    "rc-picker": "^2.5.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
@@ -56,7 +58,6 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "frontmatter-markdown-loader": "^3.6.2"
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }

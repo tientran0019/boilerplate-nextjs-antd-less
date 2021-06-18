@@ -6,20 +6,28 @@
 * Created: 2021-06-17 12:29:42
 *------------------------------------------------------- */
 
-// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const withAntdLess = require('next-plugin-antd-less');
+const path = require('path');
+const loadEnvConfig = require('./bin/env');
 
-module.exports = {
-	reactStrictMode: true,
-	webpack: config => {
-		config.module.rules.push({
-			test: /\.md$/,
-			use: 'frontmatter-markdown-loader',
-		});
+loadEnvConfig();
 
-		// config.plugins.push(
-		// 	new AntdDayjsWebpackPlugin(),
-		// );
+module.exports = withAntdLess({
+	// modifyVars: { '@primary-color': 'red' },
+	lessVarsFilePath: './src/styles/variables.less',
+	lessVarsFilePathAppendToEndOfContent: true,
+	// optional https://github.com/webpack-contrib/css-loader#object
+	cssLoaderOptions: {
+		modules: {
+			auto: /\.module\.\w+$/i,
+			localIdentName: process.env.MODE !== 'production' ? '[folder]__[local]__[hash:4]' : '[hash:8]',
+			localIdentContext: path.resolve(__dirname, 'src'),
+		},
+	},
 
+	// Other Config Here...
+
+	webpack(config) {
 		return config;
 	},
-}
+});

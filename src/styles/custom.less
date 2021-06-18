@@ -1,0 +1,263 @@
+
+#app-container,
+#root {
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+	height: 5px;              /* height of horizontal scrollbar ← You're missing this */
+	width: 4px;               /* width of vertical scrollbar */
+	// border: 1px solid #e8e8e8;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+	background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(204, 204, 204);
+	border-radius: 3px;
+	border: 3px solid transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(155, 155, 155);
+	border: 2px solid transparent;
+}
+
+
+/* Make clicks pass-through */
+#nprogress {
+	pointer-events: none;
+}
+
+#nprogress .bar {
+	background: @primary-color;
+
+	position: fixed;
+	z-index: 1031;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+	display: block;
+	position: absolute;
+	right: 0px;
+	width: 100px;
+	height: 100%;
+	box-shadow: 0 0 10px @primary-color, 0 0 5px @primary-color;
+	opacity: 1;
+
+	-webkit-transform: rotate(3deg) translate(0px, -4px);
+	-ms-transform: rotate(3deg) translate(0px, -4px);
+	transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+	display: block;
+	position: fixed;
+	z-index: 1031;
+	top: 15px;
+	right: 15px;
+}
+
+#nprogress .spinner-icon {
+	width: 18px;
+	height: 18px;
+	box-sizing: border-box;
+
+	border: solid 2px transparent;
+	border-top-color: @primary-color;
+	border-left-color: @primary-color;
+	border-radius: 50%;
+
+	-webkit-animation: nprogress-spinner 400ms linear infinite;
+	animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+	overflow: hidden;
+	position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+	position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes nprogress-spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.ant-form-item-with-help {
+    margin-bottom: 5px !important;
+}
+
+// .ant-form-item-control:not(.has-error) {
+// 	line-height: inherit !important;
+// }
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item,
+.ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+	margin-bottom: 0;
+	margin-top: 0;
+	height: 48px;
+    line-height: 48px;
+}
+
+.ant-card {
+	box-shadow: 1px 1px 2px 0px rgba(60, 75, 100, 0.04) !important;
+}
+
+.site-collapse-custom-collapse {
+	background: transparent !important;
+	border: 0 !important;
+}
+
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+	background-color: #e6f7ff !important;
+    border: 1px solid #91d5ff !important;
+	border-radius: 2px !important;
+	margin-bottom: 24px !important;
+	overflow: hidden !important;
+}
+
+.ant-divider-horizontal {
+	margin: 15px 0;
+}
+
+.ant-statistic-content {
+	font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.ant-statistic-title {
+	color: rgba(0, 0, 0, 0.74) !important;
+}
+
+.ant-form-item-label {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+}
+
+
+.ant-checkbox-inner {
+	border-radius: 0 !important;
+}
+
+.modal-custom {
+  .ant-modal-body {
+	  padding: 20px;
+
+	  .ant-modal-confirm-btns {
+		  float: none;
+		  text-align: center;
+	  }
+  }
+}
+
+.custom-name {
+	p {
+		margin-bottom: 0;
+	}
+}
+.custom-desc {
+	p {
+		margin-bottom: 0;
+		display: inline;
+		white-space: pre-line;
+	}
+
+	p:empty{
+		height: 0 !important;
+		display: block;
+
+		// &:first-child {
+		// 	height: 0;
+		// 	display: inline;
+		// }
+	}
+}
+
+.radio-custom {
+  align-items: flex-start !important;
+  height: auto !important;
+  line-height: unset !important;
+  display: flex !important;
+  margin-bottom: 7px;
+
+  .ant-radio {
+	  margin-top: 3px;
+  }
+
+  .ant-checkbox {
+	  margin-top: 5px;
+  }
+
+  .custom-desc {
+	  white-space: pre-line;
+  }
+}
+img {
+    max-width: 100%;
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon + span, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+	color: #d80101;
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon, .ant-menu-dark .ant-menu-item-selected .anticon {
+    color: #d80101;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    border-left: 2px solid #d80101;
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item, .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+    margin-bottom: 0;
+    margin-top: 0;
+    height: 42px;
+    line-height: 42px;
+	font-size: 12px;
+}
+
+.ant-form-item-explain {
+	font-size: 12px !important;
+	margin-top: 4px !important;
+}
