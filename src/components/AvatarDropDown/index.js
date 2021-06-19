@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* --------------------------------------------------------
 * Author Trần Đức Tiến
 * Email tientran0019@gmail.com
@@ -58,7 +59,7 @@ const AvatarDropDown = (props) => {
 				console.log('Cancel');
 			},
 		});
-	}, []);
+	}, [dispatch]);
 
 	const menu = (
 		<Menu className={classes.menuDropdown}>
