@@ -1,0 +1,105 @@
+.trigger {
+	font-size: 18px;
+	padding: 0 20px;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.trigger:hover {
+	color: @primary-color;
+}
+
+.logo {
+	height: 50px;
+	background: #050505;
+	color: #fff;
+	font-weight: 600;
+    display: flex;
+    align-items: center;
+	font-size: 18px;
+	padding-left: 24px;
+
+	span {
+		margin-left: 10px;
+	}
+}
+.logoCenter {
+	font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size: 16px;
+	line-height: normal;
+
+	span {
+		margin-left: 5px;
+	}
+}
+
+.siteLayout {
+	transition: all 0.2s;
+}
+
+.root {
+	:global {
+		.ant-layout-sider-collapsed {
+			max-width: 50px !important;
+			min-width: 50px !important;
+			width: 50px !important;
+
+			.ant-menu-inline-collapsed {
+				width: 50px;
+
+				.ant-menu-item {
+					text-align: center;
+				}
+			}
+
+			:local(.logo) {
+				justify-content: center;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.sidebar {
+	box-shadow: 0 2px 2px 0 rgba(60,75,100,.14), 0 3px 1px -2px rgba(60,75,100,.12), 0 1px 5px 0 rgba(60,75,100,.2);
+	// background-color: #303c54;
+	position: fixed !important;
+    height: 100vh;
+    overflow: auto;
+    left: 0;
+    top: 0;
+	bottom: 0;
+	z-index: 99;
+
+	:global {
+		.ant-menu {
+			// padding: 10px 0;
+
+			.ant-menu-item {
+				height: 38px;
+				line-height: 38px;
+			}
+		}
+	}
+}
+
+.headerRight {
+	padding: 0 20px;
+	height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.42);
+	z-index: 98;
+	cursor: pointer;
+}

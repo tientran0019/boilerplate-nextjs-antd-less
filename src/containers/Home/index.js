@@ -7,7 +7,7 @@ import { SmileFilled } from '@ant-design/icons';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import DatePicker from 'src/components/DatePicker';
+import DatePicker from 'src/components/Forms/DatePicker';
 
 import classes from './style.module.less';
 

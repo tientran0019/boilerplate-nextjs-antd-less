@@ -9,6 +9,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import Head from 'src/components/Head';
+
 import Home from 'src/containers/Home';
 
 const propTypes = {
@@ -23,7 +25,10 @@ const HomePage = (props) => {
 	// const { } = props;
 
 	return (
-		<Home />
+		<>
+			<Head />
+			<Home />
+		</>
 	);
 };
 
