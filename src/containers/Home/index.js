@@ -90,7 +90,7 @@ export default function Home() {
 						labelCol={{ span: 8 }}
 						wrapperCol={{ span: 8 }}
 					>
-						<DatePicker name="startDate" />
+						<DatePicker size="large" name="startDate" />
 					</FormItem>
 					<FormItem
 						style={{ marginTop: 48 }}
