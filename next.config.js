@@ -6,7 +6,7 @@
 *
 * Created: 2021-06-17 12:29:42
 *------------------------------------------------------- */
-const path = require('path');
+// const path = require('path');
 
 const withAntdLess = require('next-plugin-antd-less');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -31,9 +31,7 @@ module.exports = withBundleAnalyzer(withAntdLess({
 	// optional https://github.com/webpack-contrib/css-loader#object
 	cssLoaderOptions: {
 		modules: {
-			// auto: /\.module\.\w+$/i,
 			localIdentName: process.env.MODE !== 'production' ? '[folder]__[local]__[hash:4]' : '[hash:8]',
-			localIdentContext: path.resolve(__dirname, 'src'),
 		},
 	},
 
