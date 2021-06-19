@@ -34,6 +34,7 @@
     "antd": "^4.16.3",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.5",
+    "frontmatter-markdown-loader": "^3.6.2",
     "lodash": "^4.17.21",
     "next": "11.0.0",
     "next-redux-wrapper": "^7.0.2",

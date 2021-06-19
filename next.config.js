@@ -39,6 +39,11 @@ module.exports = withBundleAnalyzer(withAntdLess({
 	// Other Config Here...
 
 	webpack(config) {
+		config.module.rules.push({
+			test: /\.md$/,
+			use: 'frontmatter-markdown-loader',
+		});
+
 		config.plugins.push(
 			new webpack.EnvironmentPlugin({ ...process.env, 'THEME': { ...antdVariables } }),
 		);

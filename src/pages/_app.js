@@ -15,7 +15,7 @@ import cookie from 'react-cookies';
 import { useAsync } from 'react-use';
 
 import NProgress from 'nprogress';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import MainLayout from 'src/components/Layout/MainLayout';
 import Loading from 'src/components/Loading';
@@ -28,21 +28,36 @@ import AuthStorage from 'src/utils/auth-storage';
 
 require('src/styles/index.less');
 
-Router.events.on('routeChangeStart', url => {
-	NProgress.start();
-});
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
-
 const urlsIgnore = ['/forgot-password', '/login-first', '/login', '/sign-up', '/verify-email', '/reset-password'];
 
 const MyApp = (props) => {
-	const { Component, pageProps, router } = props;
+	const { Component, pageProps } = props;
 	const [awaitLoading, setAwaitLoading] = React.useState(true);
+	const router = useRouter();
 
 	const dispatch = useDispatch();
 
 	const Layout = Component.Layout || MainLayout;
+
+	React.useEffect(() => {
+		const handleRouteChange = (url, { shallow }) => {
+			if (!shallow) {
+				NProgress.start();
+			}
+		};
+
+		router.events.on('routeChangeStart', handleRouteChange);
+		router.events.on('routeChangeComplete', () => NProgress.done());
+		router.events.on('routeChangeError', () => NProgress.done());
+
+		// If the component is unmounted, unsubscribe
+		// from the event with the `off` method:
+		return () => {
+			router.events.off('routeChangeStart', handleRouteChange);
+			router.events.off('routeChangeComplete', () => NProgress.done());
+			router.events.off('routeChangeError', () => NProgress.done());
+		};
+	}, []);
 
 	useAsync(async () => {
 		if (AuthStorage.loggedIn) {

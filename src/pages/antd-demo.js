@@ -1,17 +1,17 @@
 /* --------------------------------------------------------
-* Author Trần Đức Tiến
+* Author Tien Tran
 * Email tientran0019@gmail.com
 * Phone 0972970075
 *
-* Created: 2021-06-19 19:14:01
+* Created: 2021-06-19 00:26:25
 *------------------------------------------------------- */
 
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-// import classes from './style.less';
+import Head from 'src/components/Head';
 
-import { html } from '../../../README.md';
+import AntDemo from 'src/containers/AntDemo';
 
 const propTypes = {
 	// classes: PropTypes.object.isRequired,
@@ -21,18 +21,19 @@ const defaultProps = {
 	// classes: {},
 };
 
-const Index = (props) => {
+const AntDemoPage = (props) => {
 	// const { } = props;
 
 	return (
-		<div className="">
-			<div dangerouslySetInnerHTML={{ __html: html }} />
-		</div>
+		<>
+			<Head title="Antd Demo" />
+			<AntDemo />
+		</>
 	);
 };
 
-Index.propTypes = propTypes;
+AntDemoPage.propTypes = propTypes;
 
-Index.defaultProps = defaultProps;
+AntDemoPage.defaultProps = defaultProps;
 
-export default Index;
+export default AntDemoPage;
