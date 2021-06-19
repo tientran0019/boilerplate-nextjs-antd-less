@@ -37,7 +37,7 @@ module.exports = withPlugins([
 				javascriptEnabled: true,
 				sourceMap: process.env.NODE_ENV !== 'production',
 				modifyVars: {
-					'hack': 'true;@import "~antd/lib/style/color/colors.less";',
+					'hack': 'true;@import "~antd/lib/style/themes/compact.less";',
 					...antdVariables,
 				},
 			},
