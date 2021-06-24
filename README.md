@@ -15,7 +15,7 @@ This boilerplate is updated with:
 
 ## Getting Started
 
-1. Check if your [Node.js](https://nodejs.org/) version is >= 8.
+1. Check if your [Node.js](https://nodejs.org/) version is >= 10.13.
 2. Clone this repository.
 3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
 4. Change the name of your app on `public/manifest.json`.
