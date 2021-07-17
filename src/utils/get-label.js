@@ -6,7 +6,7 @@
 * Created: 2020-05-18 23:24:01
 *------------------------------------------------------- */
 
-export default (options = [], val) => {
+const getLabel = (options = [], val) => {
 	if (options.length === 0 || !val) {
 		return '';
 	}
@@ -17,3 +17,5 @@ export default (options = [], val) => {
 
 	return option ? option.label : val;
 };
+
+export default getLabel;

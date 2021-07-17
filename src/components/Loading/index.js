@@ -15,14 +15,20 @@ import THEME from 'src/constants/theme';
 
 const propTypes = {
 	fullScreen: PropTypes.bool,
+	loading: PropTypes.bool,
 };
 
 const defaultProps = {
 	fullScreen: false,
+	loading: false,
 };
 
 const Loading = (props) => {
-	const { fullScreen } = props;
+	const { fullScreen, loading } = props;
+
+	if (!loading) {
+		return null;
+	}
 
 	if (!fullScreen) {
 		return (
