@@ -7,7 +7,7 @@
 * Created: 2021-06-19 15:26:14
 *------------------------------------------------------- */
 import React from 'react';
-import App from 'next/app';
+// import App from 'next/app';
 import Head from 'next/head';
 
 import { useDispatch } from 'react-redux';
@@ -30,50 +30,6 @@ import AuthStorage from 'src/utils/auth-storage';
 require('src/styles/index.less');
 
 const urlsIgnore = ['/forgot-password', '/login-first', '/login', '/sign-up', '/verify-email', '/reset-password'];
-
-export const getInitialProps = async (context) => {
-	const { ctx, Component } = context;
-
-	if (!process.browser) {
-		cookie.plugToRequest(ctx.req, ctx.res);
-	}
-
-	if (!AuthStorage.loggedIn && !urlsIgnore.includes(ctx.pathname)) {
-		if (ctx.res) {
-			ctx.res.writeHead(302, { Location: '/login' });
-			ctx.res.end();
-		}
-	}
-
-	// calls page's `getInitialProps` and fills `appProps.pageProps`
-	const { pageProps } = await App?.getInitialProps(context);
-
-	const propsData = {
-		...pageProps,
-		// gotAuthData,
-	};
-
-	let layoutProps = {};
-
-	if (Component?.Layout) {
-		layoutProps = await Component?.Layout?.getInitialProps?.({
-			...context,
-			pageProps: propsData,
-		});
-	} else {
-		layoutProps = await MainLayout?.getInitialProps?.({
-			...context,
-			pageProps: propsData,
-		});
-	}
-
-	return {
-		pageProps: {
-			...propsData,
-			...layoutProps,
-		},
-	};
-};
 
 const MyApp = (props) => {
 	const { Component, pageProps } = props;
@@ -102,6 +58,7 @@ const MyApp = (props) => {
 			router.events.off('routeChangeComplete', () => NProgress.done());
 			router.events.off('routeChangeError', () => NProgress.done());
 		};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useAsync(async () => {
@@ -124,7 +81,7 @@ const MyApp = (props) => {
 		}
 	}, [AuthStorage.loggedIn]);
 
-	useAsync(async () => {
+	useAsync(async () => { 
 		if (!AuthStorage.loggedIn && typeof window !== 'undefined' && !urlsIgnore.includes(router.pathname)) {
 			router.push('/login');
 		}
@@ -139,6 +96,60 @@ const MyApp = (props) => {
 			<Loading fullScreen loading={awaitLoading} />
 		</Layout>
 	);
+};
+
+MyApp.getInitialProps = async (context) => {
+	const { ctx, Component } = context;
+
+	if (!process.browser) {
+		cookie.plugToRequest(ctx.req, ctx.res);
+	}
+
+	if (!AuthStorage.loggedIn && !urlsIgnore.includes(ctx.pathname)) {
+		if (ctx.res) {
+			ctx.res.writeHead(302, { Location: '/login' });
+			ctx.res.end();
+		}
+	}
+
+	if (AuthStorage.loggedIn && urlsIgnore.includes(ctx.pathname)) {
+		if (ctx.res) {
+			ctx.res.writeHead(302, { Location: '/inbox' });
+			ctx.res.end();
+		}
+	}
+
+	// calls page's `getInitialProps` and fills `appProps.pageProps`
+	let pageProps = {};
+
+	if (Component?.getInitialProps) {
+		pageProps = await Component?.getInitialProps(ctx);
+	}
+
+	const propsData = {
+		...pageProps,
+	};
+
+	let layoutProps = {};
+
+	if (Component?.Layout) {
+		layoutProps = await Component?.Layout?.getInitialProps?.({
+			...ctx,
+			pageProps: propsData,
+		});
+	} else {
+		layoutProps = await MainLayout?.getInitialProps?.({
+			...ctx,
+			pageProps: propsData,
+		});
+	}
+
+	return {
+		pageProps: {
+			...propsData,
+			...layoutProps,
+		},
+	};
 };
 
 export default wrapperStore.withRedux(MyApp);
