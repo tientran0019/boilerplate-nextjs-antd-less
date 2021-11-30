@@ -81,7 +81,7 @@ const MyApp = (props) => {
 		}
 	}, [AuthStorage.loggedIn]);
 
-	useAsync(async () => { 
+	useAsync(async () => {
 		if (!AuthStorage.loggedIn && typeof window !== 'undefined' && !urlsIgnore.includes(router.pathname)) {
 			router.push('/login');
 		}
@@ -114,7 +114,7 @@ MyApp.getInitialProps = async (context) => {
 
 	if (AuthStorage.loggedIn && urlsIgnore.includes(ctx.pathname)) {
 		if (ctx.res) {
-			ctx.res.writeHead(302, { Location: '/inbox' });
+			ctx.res.writeHead(302, { Location: '/' });
 			ctx.res.end();
 		}
 	}

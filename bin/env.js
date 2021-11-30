@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function loadEnvConfig({ dir = process.cwd(), dev = false } = {}) {
-	const mode = process.env.MODE || (dev ? 'development' : 'production');
+	const mode = process.env.NODE_ENV || (dev ? 'development' : 'production');
 	const dotenvFiles = [
 		`.env.${mode}.local`,
 		'.env.local',

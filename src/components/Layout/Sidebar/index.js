@@ -47,6 +47,7 @@ const Sidebar = () => {
 	// }, []);
 
 	// eslint-disable-next-line no-unused-vars
+	// eslint-disable-next-line no-unsafe-optional-chaining
 	const [, root, sub] = router.pathname?.split('/');
 
 	return (

@@ -32,7 +32,7 @@ module.exports = withBundleAnalyzer(withAntdLess({
 	// optional https://github.com/webpack-contrib/css-loader#object
 	cssLoaderOptions: {
 		modules: {
-			localIdentName: process.env.MODE !== 'production' ? '[folder]__[local]__[hash:4]' : '[hash:8]',
+			localIdentName: process.env.NODE_ENV !== 'production' ? '[folder]__[local]__[hash:4]' : '[hash:8]',
 		},
 	},
 

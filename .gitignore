@@ -34,7 +34,7 @@ yarn-error.log*
 
 # vercel
 .vercel
-  
+
 .idea
 .tmp
 .swp
@@ -45,17 +45,17 @@ out
 .idea/
 
 dist
-yarn.lock 
+yarn.lock
 package-lock.json
 
 # maybe some logs
-/log 
- 
+/log
+
 # bower, but nobody uses it since we've got webpack
-bower_components/ 
+bower_components/
 
 # github pages
-gh-pages/ 
+gh-pages/
 
 # cache files for sublime text
 *.tmlanguage.cache
