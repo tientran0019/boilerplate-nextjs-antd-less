@@ -6,86 +6,62 @@
  * Created: 2018-09-18 10:09:32
  *------------------------------------------------------- */
 
-import AuthStorage from 'src/utils/auth-storage';
-import URL from 'src/constants/urls';
-import { notification } from 'antd';
+import cookie from 'react-cookies';
 
-// import 'isomorphic-unfetch';
-
-const { API_URL } = URL;
-
-const upload = (file, next = f => f, nextErr = f => f) => {
-	const { name, renameFile, type } = file;
-
-	const options = {
-		method: 'POST',
-		body: JSON.stringify({
-			fileName: renameFile || name,
-			contentType: type,
-		}),
-		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-		},
-	};
-
-	// set token
-	if (AuthStorage.loggedIn) {
-		options.headers.Authorization = AuthStorage.token;
-	}
-
-	fetch(API_URL + '/containers/get-signed-url', options)
-		.then(response => {
-			return response.status === 204 || response.statusText === 'No Content'
-				? {}
-				: response.json();
-		})
-		.then(res => {
-			if (res.error) {
-				throw res.error;
-			} else {
-				const optionsS3 = {
-					method: 'PUT',
-					body: file,
-					headers: {
-						'Content-Type': type,
-					},
-				};
-
-				return fetch(res.singedUrl, optionsS3)
-					.then(response => {
-						if (response.status === 200) {
-							notification.success({
-								message: 'Uploaded',
-								description: 'Uploaded successfully.',
-							});
-							return next(res);
-						}
-
-						return nextErr(response);
-					})
-					.catch(err => {
-						console.log('err upload s3', err);
-						notification.error({
-							message: 'Error',
-							description:
-								'Please try again. Make sure you are uploading a valid file. (Err upload s3)' +
-								err,
-						});
-						return nextErr(err);
-					});
-			}
-		})
-		.catch(err => {
-			console.log('err upload api', err);
-			notification.error({
-				message: 'Error',
-				description:
-					'Please try again. Make sure you are uploading a valid file. (Err upload api)' +
-					err,
-			});
-			return nextErr(err);
-		});
+const mandatory = () => {
+	throw new Error('Storage Missing parameter!');
 };
 
-export default upload;
+const configs = {
+	path: '/',
+	maxAge: 30 * 24 * 60 * 60,
+	secure: process.env.NODE_ENV === 'production',
+	// domain: '.allsubdomains.com',
+	sameSite: 'strict',
+};
+
+export default class Storage {
+	#name;
+
+	#options = {};
+
+	constructor(name = mandatory(), value = {}, options = {}) {
+		this.#name = name;
+		this.#options = options;
+
+		if (!this.value) {
+			this.value = value;
+		}
+	}
+
+	set value(value) {
+		cookie.save(
+			this.#name,
+			value,
+			{
+				...configs,
+				...this.#options,
+			},
+		);
+	}
+
+	get value() {
+		return cookie.load(this.#name);
+	}
+
+	// eslint-disable-next-line class-methods-use-this
+	get allCookies() {
+		return cookie.loadAll();
+	}
+
+	destroy = (next = f => f) => {
+		cookie.remove(
+			this.#name,
+			{
+				...configs,
+				...this.#options,
+			},
+		);
+		next();
+	}
+}
