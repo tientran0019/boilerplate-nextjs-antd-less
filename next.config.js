@@ -36,6 +36,11 @@ module.exports = withBundleAnalyzer(withAntdLess({
 		},
 	},
 
+	// for Next.js ONLY
+	nextjs: {
+		localIdentNameFollowDev: true, // default false, for easy to debug on PROD mode
+	},
+
 	// Other Config Here...
 
 	webpack(config) {
@@ -45,7 +50,10 @@ module.exports = withBundleAnalyzer(withAntdLess({
 		});
 
 		config.plugins.push(
-			new webpack.EnvironmentPlugin({ ...process.env, 'THEME': { ...antdVariables } }),
+			new webpack.EnvironmentPlugin({
+				NODE_ENV: process.env.NODE_ENV,
+				'THEME': { ...antdVariables },
+			}),
 		);
 
 		return config;
