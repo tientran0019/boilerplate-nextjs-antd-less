@@ -149,7 +149,7 @@ const Login = (props) => {
 					</Form>
 				</div>
 				<div className="py-2">
-					<strong className="text-primary">AUSABACO</strong>
+					<strong className="text-primary">Boilerplate</strong>
 					<span> 2017 © All Rights Reserved.</span>
 				</div>
 			</div>
