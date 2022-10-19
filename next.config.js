@@ -22,7 +22,7 @@ loadEnvConfig();
 
 const antdVariables = lessToJS(fs.readFileSync(path.resolve(__dirname, 'src/styles/variables.less'), 'utf8'));
 
-module.exports = withBundleAnalyzer(withAntdLess({
+const nextConfig = withBundleAnalyzer(withAntdLess({
 	// modifyVars: {
 	// 	'hack': 'true;@import "~antd/lib/style/themes/compact.less";',
 	// 	...antdVariables,
@@ -59,3 +59,5 @@ module.exports = withBundleAnalyzer(withAntdLess({
 		return config;
 	},
 }));
+
+module.exports = nextConfig;
