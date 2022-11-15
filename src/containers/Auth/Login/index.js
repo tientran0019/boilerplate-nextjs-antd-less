@@ -126,10 +126,8 @@ const Login = (props) => {
 						</Form.Item>
 						<Form.Item>
 							<div className="text-center">
-								<Link href="/forgot-password">
-									<a className="login-form-forgot">
-										Forgot password
-									</a>
+								<Link href="/forgot-password" className="login-form-forgot">
+									Forgot password
 								</Link>
 							</div>
 						</Form.Item>

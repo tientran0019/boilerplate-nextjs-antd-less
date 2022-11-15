@@ -42,10 +42,8 @@ const AntDemo = (props) => {
 			<div className="text-center mb-5">
 				<Image src="/vercel.svg" alt="logo" width="100" height="100" />
 				<div className={classes.textVal}>@primary-color</div>
-				<Link href="#">
-					<a className="logo mr-0">
-						<SmileFilled size={48} strokeWidth={1} />
-					</a>
+				<Link href="#" className="logo mr-0">
+					<SmileFilled size={48} strokeWidth={1} />
 				</Link>
 
 				<p className="mb-0 mt-3 text-disabled">Welcome to the world !</p>

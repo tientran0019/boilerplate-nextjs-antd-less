@@ -77,19 +77,15 @@ const AvatarDropDown = (props) => {
 			</div>
 			<Menu.Divider />
 			{/* <Menu.Item>
-				<Link href="/profile">
-					<a className={classes.item}>
+				<Link href="/profile" className={classes.item}>
 						<FiUser />
 						<span>Profile</span>
-					</a>
 				</Link>
 			</Menu.Item> */}
 			<Menu.Item key="change">
-				<Link href="/change-password">
-					<a className={classes.item}>
-						<BiKey />
-						<span>Change password</span>
-					</a>
+				<Link href="/change-password" className={classes.item}>
+					<BiKey />
+					<span>Change password</span>
 				</Link>
 			</Menu.Item>
 			<Menu.Item key="logout">

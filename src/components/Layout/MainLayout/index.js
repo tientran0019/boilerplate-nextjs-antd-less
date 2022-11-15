@@ -92,17 +92,15 @@ const MainLayout = (props) => {
 					}}
 				>
 					<Link href="/">
-						<a>
-							<div className={classes.logo}>
-								<Image
-									src="/images/logo.png"
-									alt="Logo"
-									width={35}
-									height={35}
-								/>
-								{!collapsed && <span>Boilerplate</span>}
-							</div>
-						</a>
+						<div className={classes.logo}>
+							<Image
+								src="/images/logo.png"
+								alt="Logo"
+								width={35}
+								height={35}
+							/>
+							{!collapsed && <span>Boilerplate</span>}
+						</div>
 					</Link>
 					<Sidebar />
 				</Sider>
@@ -124,17 +122,15 @@ const MainLayout = (props) => {
 						{
 							broken &&
 							<Link href="/">
-								<a>
-									<div className={classes.logoCenter}>
-										<Image
-											src="/images/logo.png"
-											alt="Logo"
-											width={35}
-											height={35}
-										/>
-										<span>Boilerplate</span>
-									</div>
-								</a>
+								<div className={classes.logoCenter}>
+									<Image
+										src="/images/logo.png"
+										alt="Logo"
+										width={35}
+										height={35}
+									/>
+									<span>Boilerplate</span>
+								</div>
 							</Link>
 						}
 						<div className={classes.headerRight}>

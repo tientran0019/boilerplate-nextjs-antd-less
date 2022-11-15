@@ -7,7 +7,7 @@ View the [Demo](https://boilerplate-nextjs-antd-less.vercel.app/)
 This boilerplate is updated with:
 
 - [React 18x](https://reactjs.org)
-- [Nextjs 12x](https://nextjs.org/)
+- [Nextjs 13x](https://nextjs.org/)
 - [Antd 4x](https://ant.design/)
 - Less - css module
 - Eslint
