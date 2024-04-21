@@ -37,7 +37,7 @@
     "dayjs": "^1.11.6",
     "frontmatter-markdown-loader": "^3.7.0",
     "lodash": "^4.17.21",
-    "next": "13.0.3",
+    "next": "13.5.0",
     "next-compose-plugins": "^2.2.1",
     "next-redux-wrapper": "^8.0.0",
     "nprogress": "^0.2.0",
